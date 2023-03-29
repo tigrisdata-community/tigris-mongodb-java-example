@@ -21,7 +21,7 @@ public class Create {
     public static void main(String[] args) {
         try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
 
-            MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
+            MongoDatabase sampleTrainingDB = mongoClient.getDatabase(System.getProperty("db.name"));
             MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");
 
             insertOneDocument(gradesCollection);

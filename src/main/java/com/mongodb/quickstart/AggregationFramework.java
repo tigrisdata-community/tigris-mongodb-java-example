@@ -25,7 +25,7 @@ public class AggregationFramework {
     public static void main(String[] args) {
         String connectionString = System.getProperty("mongodb.uri");
         try (MongoClient mongoClient = MongoClients.create(connectionString)) {
-            MongoDatabase db = mongoClient.getDatabase("sample_training");
+            MongoDatabase db = mongoClient.getDatabase(System.getProperty("db.name"));
             MongoCollection<Document> zips = db.getCollection("zips");
             MongoCollection<Document> posts = db.getCollection("posts");
             threeMostPopulatedCitiesInTexas(zips);

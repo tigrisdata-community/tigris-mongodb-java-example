@@ -16,7 +16,7 @@ public class Delete {
 
     public static void main(String[] args) {
         try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
-            MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
+            MongoDatabase sampleTrainingDB = mongoClient.getDatabase(System.getProperty("db.name"));
             MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");
 
             // delete one document
@@ -25,7 +25,7 @@ public class Delete {
             System.out.println(result);
 
             // findOneAndDelete operation
-            filter = eq("student_id", 10002);
+            filter = eq("student_id", 10001);
             Document doc = gradesCollection.findOneAndDelete(filter);
             System.out.println(doc.toJson(JsonWriterSettings.builder().indent(true).build()));
 

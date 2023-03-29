@@ -34,7 +34,7 @@ public class ChangeStreams {
                                                                 .build();
 
         try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
-            MongoDatabase db = mongoClient.getDatabase("sample_training");
+            MongoDatabase db = mongoClient.getDatabase(System.getProperty("db.name"));
             MongoCollection<Grade> grades = db.getCollection("grades", Grade.class);
             List<Bson> pipeline;
 
