@@ -33,6 +33,7 @@ public class Update {
             System.out.println(gradesCollection.find(filter).first().toJson(prettyPrint));
             System.out.println(updateResult);
 
+            // `and` is not presently supported.
             // upsert
             // filter = and(eq("student_id", 10002d), eq("class_id", 10d));
             // updateOperation = push("comments", "You will learn a lot if you read the MongoDB blog!");
